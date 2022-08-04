@@ -1,0 +1,921 @@
+edit prac_day_3.m
+% We will learn Polynomial, Curve fitting and  Calculas 
+diary prac_day_3.txt
+% We will learn Polynomial, Curve fitting and  Calculas 
+% Polynomial , find roots , and convert to poly to smy and sym to poly
+save trail_file N
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('save')" style="font-weight:bold">save</a>
+Variable 'N' not found.
+} 
+save trail_file
+prac_day_3
+A=1:10 
+
+A =
+
+     1     2     3     4     5     6     7     8     9    10
+
+prac_day_3
+save trail_file
+prac_day_3
+prac_day_3
+
+y = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    A: [1 2 3 4 5 6 7 8 9 10]
+
+prac_day_3
+
+y = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    A: [1 2 3 4 5 6 7 8 9 10]
+
+
+x = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+    A: [1 2 3 4 5 6 7 8 9 10]
+
+helpPopup struct
+% degree to polynomail 
+p=[ 1 2 3 4 ]
+
+p =
+
+     1     2     3     4
+
+X=poly2sym(p)
+ 
+X =
+ 
+x^3 + 2*x^2 + 3*x + 4
+ 
+solve(X)
+ 
+ans =
+ 
+ root(z^3 + 2*z^2 + 3*z + 4, z, 1)
+ root(z^3 + 2*z^2 + 3*z + 4, z, 2)
+ root(z^3 + 2*z^2 + 3*z + 4, z, 3)
+ 
+roots(p)
+
+ans =
+
+  -1.6506 + 0.0000i
+  -0.1747 + 1.5469i
+  -0.1747 - 1.5469i
+
+X
+ 
+X =
+ 
+x^3 + 2*x^2 + 3*x + 4
+ 
+X*x
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym>tomupad', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 1229)" style="font-weight:bold">sym>tomupad</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',1229,0)">line 1229</a>)
+Unable to convert 'struct' to 'sym'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 211)" style="font-weight:bold">sym</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',211,0)">line 211</a>)
+                S.s = tomupad(x);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym/privResolveArgs', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 966)" style="font-weight:bold">sym/privResolveArgs</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',966,0)">line 966</a>)
+                    argout{k} = sym(arg);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym/privBinaryOp', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 990)" style="font-weight:bold">sym/privBinaryOp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',990,0)">line 990</a>)
+            args = privResolveArgs(A, B);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym/mtimes', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 312)" style="font-weight:bold"> * </a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',312,0)">line 312</a>)
+        X = privBinaryOp(A, B, 'symobj::mtimes');
+} 
+syms x
+X*x
+ 
+ans =
+ 
+x*(x^3 + 2*x^2 + 3*x + 4)
+ 
+simplify(ans)
+ 
+ans =
+ 
+x*(x^3 + 2*x^2 + 3*x + 4)
+ 
+solve(X==0)
+ 
+ans =
+ 
+ root(z^3 + 2*z^2 + 3*z + 4, z, 1)
+ root(z^3 + 2*z^2 + 3*z + 4, z, 2)
+ root(z^3 + 2*z^2 + 3*z + 4, z, 3)
+ 
+X
+ 
+X =
+ 
+x^3 + 2*x^2 + 3*x + 4
+ 
+polyval(X,1)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filter')" style="font-weight:bold">filter</a>
+Invalid data type. Input arrays must be numeric or logical.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('polyval', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\polyfun\polyval.m', 56)" style="font-weight:bold">polyval</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\polyfun\polyval.m',56,0)">line 56</a>)
+    y = filter(1,[1 -x],p);
+} 
+p
+
+p =
+
+     1     2     3     4
+
+polyval(p,1)
+
+ans =
+
+    10
+
+polyval(p,2)
+
+ans =
+
+    26
+
+p=[2 -7 10 4]
+
+p =
+
+     2    -7    10     4
+
+a=poly2sym(p)
+ 
+a =
+ 
+2*x^3 - 7*x^2 + 10*x + 4
+ 
+x= 2:6;
+y=[65 67 72 71 63];
+
+x=2:6
+
+x =
+
+     2     3     4     5     6
+
+y
+
+y =
+
+    65    67    72    71    63
+
+coefs = polyfit(x,y,2)
+
+coefs =
+
+   -1.8571   14.8571   41.6000
+
+curve = polyval(coefs,x)
+
+curve =
+
+   63.8857   69.4571   71.3143   69.4571   63.8857
+
+e=poly2sym(coefs)
+ 
+e =
+ 
+(104*x)/7 - (13*x^2)/7 + 208/5
+ 
+coefs = polyfit(x,y,3)
+
+coefs =
+
+   -0.8333    8.1429  -22.3095   83.6000
+
+e=poly2sym(coefs)
+ 
+e =
+ 
+- (5*x^3)/6 + (57*x^2)/7 - (937*x)/42 + 418/5
+ 
+coefs = polyfit(x,y,4)
+
+coefs =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+e=poly2sym(coefs)
+ 
+e =
+ 
+(6004799503161227*x^4)/18014398509481984 - (6943049425530125*x^3)/1125899906842624 + (2720924774869919*x^2)/70368744177664 - (6743671317026813*x)/70368744177664 + 2568459162484909/17592186044416
+ 
+eq=sym2poly(e)
+
+eq =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+poly2sym(eq)
+ 
+ans =
+ 
+(6004799503161227*x^4)/18014398509481984 - (6943049425530125*x^3)/1125899906842624 + (2720924774869919*x^2)/70368744177664 - (6743671317026813*x)/70368744177664 + 2568459162484909/17592186044416
+ 
+eq
+
+eq =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+
+eq
+
+eq =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+0.3333   -6.1667   38.6667  -95.8333  146.0000
+ 0.3333   -6.1667   38.6667  -95.8333  146.0000
+                    
+{Error: Invalid expression. Check for missing multiplication operator, missing or
+unbalanced delimiters, or other syntax error. To construct matrices, use brackets
+instead of parentheses.
+} 
+sym(eq)
+ 
+ans =
+ 
+[ 6004799503161227/18014398509481984, -6943049425530125/1125899906842624, 2720924774869919/70368744177664, -6743671317026813/70368744177664, 2568459162484909/17592186044416]
+ 
+double(ans)
+
+ans =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+poly2sym(eq)
+ 
+ans =
+ 
+(6004799503161227*x^4)/18014398509481984 - (6943049425530125*x^3)/1125899906842624 + (2720924774869919*x^2)/70368744177664 - (6743671317026813*x)/70368744177664 + 2568459162484909/17592186044416
+ 
+sym(eq)
+ 
+ans =
+ 
+[ 6004799503161227/18014398509481984, -6943049425530125/1125899906842624, 2720924774869919/70368744177664, -6743671317026813/70368744177664, 2568459162484909/17592186044416]
+ 
+ poly2sym(eq)
+ 
+ans =
+ 
+(6004799503161227*x^4)/18014398509481984 - (6943049425530125*x^3)/1125899906842624 + (2720924774869919*x^2)/70368744177664 - (6743671317026813*x)/70368744177664 + 2568459162484909/17592186044416
+ 
+double(ans)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('symengine')" style="font-weight:bold">symengine</a>
+Unable to convert expression into double array.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sym/double', 'C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m', 661)" style="font-weight:bold">sym/double</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\symbolic\symbolic\@sym\sym.m',661,0)">line 661</a>)
+        Xstr = mupadmex('symobj::double', S.s, 0);
+} 
+double(eq)
+
+ans =
+
+    0.3333   -6.1667   38.6667  -95.8333  146.0000
+
+polyval(ans,x)
+
+ans =
+
+   65.0000   67.0000   72.0000   71.0000   63.0000
+
+polytofit(x,y,30
+ polytofit(x,y,30
+                 
+{Error: Invalid expression. When calling a function or indexing a variable, use
+parentheses. Otherwise, check for mismatched delimiters.
+} 
+polyfit(x,y,30)
+[Warning: Polynomial is not unique; degree >= number of data points.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('polyfit', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\polyfun\polyfit.m', 74)" style="font-weight:bold">polyfit</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\polyfun\polyfit.m',74,0)">line 74</a>)] 
+
+ans =
+
+   1.0e-09 *
+
+  Columns 1 through 8
+
+   -0.0015    0.0219   -0.1082    0.1756         0         0         0         0
+
+  Columns 9 through 16
+
+         0         0         0         0         0         0         0         0
+
+  Columns 17 through 24
+
+         0         0         0         0         0         0         0         0
+
+  Columns 25 through 31
+
+         0         0         0         0         0         0         0
+
+polyfit(x,y,3)
+
+ans =
+
+   -0.8333    8.1429  -22.3095   83.6000
+
+polyval(ans,x)
+
+ans =
+
+   64.8857   67.4571   71.3143   71.4571   62.8857
+
+x
+
+x =
+
+     2     3     4     5     6
+
+y
+
+y =
+
+    65    67    72    71    63
+
+plot(x,y,'ro')
+axis([1 7 60 75])
+plot(x,y,'ro')
+plot(x,y,'ro')
+plot(x,y,'ro')
+axis([-7 1 7 60 75])
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p', 312)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p',312,0)">line 312</a>)
+Vector must have 4, 6, or 8 elements.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p', 105)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p',105,0)">line 105</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+} 
+plot(x,y,'ro')
+axis([-7 1 7 60 75]) plot(x,y,'ro')
+ axis([-7 1 7 60 75]) plot(x,y,'ro')
+                      
+{Error: Invalid expression. Check for missing multiplication operator, missing or
+unbalanced delimiters, or other syntax error. To construct matrices, use brackets
+instead of parentheses.
+} 
+axis([-7 1 7 60 75])
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis>LocSetLimits', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p', 312)" style="font-weight:bold">axis>LocSetLimits</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p',312,0)">line 312</a>)
+Vector must have 4, 6, or 8 elements.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('axis', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p', 105)" style="font-weight:bold">axis</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\graph2d\axis.p',105,0)">line 105</a>)
+                LocSetLimits(ax(j),cur_arg,names);
+} 
+x= 2:6;
+y=[65 67 72 71 63];
+coefs = polyfit(x,y,2);
+curve = polyval(coefs,x);
+x=2:6
+
+x =
+
+     2     3     4     5     6
+
+y
+
+y =
+
+    65    67    72    71    63
+
+coefs
+
+coefs =
+
+   -1.8571   14.8571   41.6000
+
+curve=polyval(coefs,x)
+
+curve =
+
+   63.8857   69.4571   71.3143   69.4571   63.8857
+
+plot(x,y,'ro',x,curve)
+xlabel('Time')
+ylabel('Temperatures')
+title('Temperatures one afternoon')
+axis([1 7 60 75]
+ axis([1 7 60 75]
+                 
+{Error: Invalid expression. When calling a function or indexing a variable, use
+parentheses. Otherwise, check for mismatched delimiters.
+} 
+axis([1 7 60 75])
+close all
+interpl(x,y,5)
+{Undefined function or variable 'interpl'.
+} 
+interp(x,y,5)
+{Operands to the || and && operators must be convertible to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('interp', 'C:\Program Files\MATLAB\R2018a\toolbox\signal\signal\interp.m', 56)" style="font-weight:bold">interp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\signal\signal\interp.m',56,0)">line 56</a>)
+if l < 1 || r < 1 || cutoff <= 0 || cutoff > 1
+} 
+interp1(x,y,3.5)
+
+ans =
+
+   69.5000
+
+interp1(x,y,5)
+
+ans =
+
+    71
+
+interpl(x,y,6)
+{Undefined function or variable 'interpl'.
+} 
+interp1(x,y,6)
+
+ans =
+
+    63
+
+interp1(x,y,2)
+
+ans =
+
+    65
+
+interp1(x,y,2.5)
+
+ans =
+
+    66
+
+a=3:5
+
+a =
+
+     3     4     5
+
+interp1(x,y,a)
+
+ans =
+
+    67    72    71
+
+interp1(x,y,8,'linear','extrap')
+
+ans =
+
+    47
+
+interp1(x,y,7,'linear','extrap')
+
+ans =
+
+    55
+
+interp1(x,y,8,'linear','extrap')
+
+ans =
+
+    47
+
+interp1(x,y,9,'linear','extrap')
+
+ans =
+
+    39
+
+interp1(x,y,10,'linear','extrap')
+
+ans =
+
+    31
+
+interp1(x,y,10)
+
+ans =
+
+   NaN
+
+interp1(x,y,8)
+
+ans =
+
+   NaN
+
+interpl(x,y,7)
+{Undefined function or variable 'interpl'.
+} 
+interp(x,y,7)
+{Operands to the || and && operators must be convertible to logical scalar values.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('interp', 'C:\Program Files\MATLAB\R2018a\toolbox\signal\signal\interp.m', 56)" style="font-weight:bold">interp</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\signal\signal\interp.m',56,0)">line 56</a>)
+if l < 1 || r < 1 || cutoff <= 0 || cutoff > 1
+} 
+interp1(x,y,8)
+
+ans =
+
+   NaN
+
+% trapezodial
+x=[ 2 ,3]
+
+x =
+
+     2     3
+
+y=x
+
+y =
+
+     2     3
+
+y=x^2
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mpower')" style="font-weight:bold"> ^ </a>
+Incorrect dimensions for raising a matrix to a power. Check that the matrix is square
+and the power is a scalar. To perform elementwise matrix powers, use '.^'.
+} 
+y=ln(x)
+{Undefined function or variable 'ln'.
+} 
+y=sin(x)
+
+y =
+
+    0.9093    0.1411
+
+clear x
+y=x
+{Undefined function or variable 'x'.
+} 
+y=X
+ 
+y =
+ 
+x^3 + 2*x^2 + 3*x + 4
+ 
+syms x
+y=x
+ 
+y =
+ 
+x
+ 
+trape(y,0,2)
+{Undefined function or variable 'trape'.
+} 
+trap(y,0,2)
+{Undefined function or variable 'trap'.
+} 
+trapz(y,0,2)
+ 
+ans =
+ 
+0
+ 
+trapz(0,2,y)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('trapz', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m', 36)" style="font-weight:bold">trapz</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m',36,0)">line 36</a>)
+Dimension argument must be a positive integer scalar within indexing range.
+} 
+a=0:2
+
+a =
+
+     0     1     2
+
+trapz(a,y)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('trapz', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m', 47)" style="font-weight:bold">trapz</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m',47,0)">line 47</a>)
+Dimension argument must be a positive integer scalar within indexing range.
+} 
+x=1:3;
+x=2:4
+
+x =
+
+     2     3     4
+
+y=@(x) x
+
+y =
+
+  <a href="matlab:helpPopup function_handle" style="font-weight:bold">function_handle</a> with value:
+
+    @(x)x
+
+trapz(x,y)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('trapz', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m', 47)" style="font-weight:bold">trapz</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m',47,0)">line 47</a>)
+Dimension argument must be a positive integer scalar within indexing range.
+} 
+x
+
+x =
+
+     2     3     4
+
+y
+
+y =
+
+  <a href="matlab:helpPopup function_handle" style="font-weight:bold">function_handle</a> with value:
+
+    @(x)x
+
+trapz(y,x)
+{Input arguments to function include colon operator. To input the colon character, use
+':' instead.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('trapz', 'C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m', 64)" style="font-weight:bold">trapz</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2018a\toolbox\matlab\datafun\trapz.m',64,0)">line 64</a>)
+x = x(:);
+} 
+y=f(x)
+{Undefined function or variable 'f'.
+} 
+syms x
+y=f(x)
+{Undefined function or variable 'f'.
+} 
+x
+ 
+x =
+ 
+x
+ 
+y
+
+y =
+
+  <a href="matlab:helpPopup function_handle" style="font-weight:bold">function_handle</a> with value:
+
+    @(x)x
+
+y=x
+ 
+y =
+ 
+x
+ 
+clear y
+x=
+ x=
+   
+{Error: Invalid expression. Check for missing or extra characters.
+} 
+x
+ 
+x =
+ 
+x
+ 
+x=2:4
+
+x =
+
+     2     3     4
+
+y=x
+
+y =
+
+     2     3     4
+
+trapz(x,y)
+
+ans =
+
+     6
+
+x=0:3
+
+x =
+
+     0     1     2     3
+
+y=x
+
+y =
+
+     0     1     2     3
+
+trapz(x,y)
+
+ans =
+
+    4.5000
+
+y=x^2
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mpower')" style="font-weight:bold"> ^ </a>
+Incorrect dimensions for raising a matrix to a power. Check that the matrix is square
+and the power is a scalar. To perform elementwise matrix powers, use '.^'.
+} 
+y=x.^2
+
+y =
+
+     0     1     4     9
+
+trapz(x,y)
+
+ans =
+
+    9.5000
+
+x
+
+x =
+
+     0     1     2     3
+
+x=2:1
+
+x =
+
+  1×0 empty <a href="matlab:helpPopup double" style="font-weight:bold">double</a> row vector
+
+x
+
+x =
+
+  1×0 empty <a href="matlab:helpPopup double" style="font-weight:bold">double</a> row vector
+
+x=1:2
+
+x =
+
+     1     2
+
+y=ln(x)
+{Undefined function or variable 'ln'.
+} 
+y=log(x)
+
+y =
+
+         0    0.6931
+
+trapz(x,y)
+
+ans =
+
+    0.3466
+
+x=1:.2:2
+
+x =
+
+    1.0000    1.2000    1.4000    1.6000    1.8000    2.0000
+
+x=1:.1:2
+
+x =
+
+  Columns 1 through 8
+
+    1.0000    1.1000    1.2000    1.3000    1.4000    1.5000    1.6000    1.7000
+
+  Columns 9 through 11
+
+    1.8000    1.9000    2.0000
+
+y=log(x)
+
+y =
+
+  Columns 1 through 8
+
+         0    0.0953    0.1823    0.2624    0.3365    0.4055    0.4700    0.5306
+
+  Columns 9 through 11
+
+    0.5878    0.6419    0.6931
+
+trapz(x,y)
+
+ans =
+
+    0.3859
+
+x=2:4
+
+x =
+
+     2     3     4
+
+y=x.^2
+
+y =
+
+     4     9    16
+
+trapz(x,y)
+
+ans =
+
+    19
+
+x=2:0.1:4
+
+x =
+
+  Columns 1 through 8
+
+    2.0000    2.1000    2.2000    2.3000    2.4000    2.5000    2.6000    2.7000
+
+  Columns 9 through 16
+
+    2.8000    2.9000    3.0000    3.1000    3.2000    3.3000    3.4000    3.5000
+
+  Columns 17 through 21
+
+    3.6000    3.7000    3.8000    3.9000    4.0000
+
+y=x.^2
+
+y =
+
+  Columns 1 through 8
+
+    4.0000    4.4100    4.8400    5.2900    5.7600    6.2500    6.7600    7.2900
+
+  Columns 9 through 16
+
+    7.8400    8.4100    9.0000    9.6100   10.2400   10.8900   11.5600   12.2500
+
+  Columns 17 through 21
+
+   12.9600   13.6900   14.4400   15.2100   16.0000
+
+trapz(x,y)
+
+ans =
+
+   18.6700
+
+x=1:2
+
+x =
+
+     1     2
+
+y=log(x) 
+
+y =
+
+         0    0.6931
+
+trapz(x,y)
+
+ans =
+
+    0.3466
+
+x=1:0.05:2
+
+x =
+
+  Columns 1 through 8
+
+    1.0000    1.0500    1.1000    1.1500    1.2000    1.2500    1.3000    1.3500
+
+  Columns 9 through 16
+
+    1.4000    1.4500    1.5000    1.5500    1.6000    1.6500    1.7000    1.7500
+
+  Columns 17 through 21
+
+    1.8000    1.8500    1.9000    1.9500    2.0000
+
+y=ln(x)
+{Undefined function or variable 'ln'.
+} 
+y=log(x)
+
+y =
+
+  Columns 1 through 8
+
+         0    0.0488    0.0953    0.1398    0.1823    0.2231    0.2624    0.3001
+
+  Columns 9 through 16
+
+    0.3365    0.3716    0.4055    0.4383    0.4700    0.5008    0.5306    0.5596
+
+  Columns 17 through 21
+
+    0.5878    0.6152    0.6419    0.6678    0.6931
+
+trapz(x,y)
+
+ans =
+
+    0.3862
+
