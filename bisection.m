@@ -1,6 +1,3 @@
-clc
-close all
-clear all
 f=input('Declare a function : ');
 a=input('Enter intial value  : ');
 b=input('Enter terminated  value : ');
